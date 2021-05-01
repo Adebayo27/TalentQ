@@ -1,7 +1,7 @@
 <?php
-   
+
 namespace App\Http\Controllers\API;
-   
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\API\BaseController as BaseController;
 use App\Models\User;
@@ -10,7 +10,7 @@ use App\Models\PhotoRequest;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 // use Illuminate\Validation\Validator;
-   
+
 class AdminController extends BaseController
 {
     /**
@@ -28,18 +28,18 @@ class AdminController extends BaseController
         $validator = Validator::make($request->all(), [
             'name' => 'required',
         ]);
-   
-        if($validator->fails()){
-            return $this->sendError('Validation Error.', $validator->errors());       
+
+        if ($validator->fails()) {
+            return $this->sendError('Validation Error.', $validator->errors());
         }
-   
+
         $input = $request->all();
         $user = Category::create($input);
         $success =  $input;
-   
+
         return $this->sendResponse($success, 'Category created successfully.');
     }
-   
+
     /**
      * Login api
      *

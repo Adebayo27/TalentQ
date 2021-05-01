@@ -170,6 +170,5 @@ class RequestController extends BaseController
         $resp = PhotoResponse::join('users', 'user_id', '=', 'users.id')
             ->where(['user_id' => $id, 'status' => 1])->get();
         return $this->sendResponse($resp, 'Fetched successfully.');
-     
     }
 }
