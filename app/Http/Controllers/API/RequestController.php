@@ -53,11 +53,6 @@ class RequestController extends BaseController
         return $this->sendResponse($success, 'Fetched successfully.');
     }
 
-    /**
-     * Login api
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function get_my_requests(Request $request)
     {
         $all_requests = PhotoRequest::where(['id' => Auth::id()]);
